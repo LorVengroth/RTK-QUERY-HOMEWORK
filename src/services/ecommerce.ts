@@ -7,24 +7,32 @@ export const ecommerceApi= createApi({
   reducerPath: 'ecommerceApi',
   baseQuery: fetchBaseQuery({baseUrl: `${process.env.NEXT_PUBLIC_ISHOP_BASE_URL}`}),
   endpoints: (builder)=>({
+
+
+    
     // getAllProducts
      getAllProduct: builder.query<ProductResponse,{page:number,size:number}>({
       query: ({page, size}) => `/products?page=${page}&size=${size}`
      }),
+
+
+
     //  getProductByUUid
     getProductByUuid: builder.query<ProductType, string>({
       query: (uuid: string) => ({
         url: `/products/${uuid}`
       })
     }),
+
+
     // create Product
     createProduct : builder.mutation<CreateProductType,unknown,unknown>({
-      query: (newProduct:CreateProductType)=> ({
+      query: ( { newProduct , accessToken })=> ({
          url: `/products`,
          method: 'POST',
          headers: {
           'content-type': 'application/json',
-          'authentication': `bearer ${process.env.ACCESS_TOEKN}`
+          'authorization': `bearer ${accessToken}`
          },
          body: newProduct
       })
