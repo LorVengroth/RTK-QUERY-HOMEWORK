@@ -26,13 +26,13 @@ export const ecommerceApi= createApi({
 
 
     // create Product
-    createProduct : builder.mutation<CreateProductType,unknown,unknown>({
-      query: ( { newProduct , accessToken })=> ({
+    createProduct : builder.mutation<CreateProductType,unknown>({
+      query: ( { newProduct })=> ({
          url: `/products`,
          method: 'POST',
          headers: {
           'content-type': 'application/json',
-          'authorization': `bearer ${accessToken}`
+          'authorization': `bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`
          },
          body: newProduct
       })

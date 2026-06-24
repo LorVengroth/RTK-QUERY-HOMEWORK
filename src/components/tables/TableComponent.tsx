@@ -103,7 +103,7 @@ export function DataTable<TData, TValue>({
     createNewProduct(
       {
         newProduct : JSON.stringify(newProduct) , 
-        accessToken : process.env.NEXT_PUBLIC_ISHOP_BASE_URL
+        accessToken : process.env.NEXT_PUBLIC_ACCESS_TOKEN
       }
     )
   }
