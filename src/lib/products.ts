@@ -12,6 +12,31 @@ export interface ProductResponse {
   content: ProductType[]
 }
 
+export type UpdateProductType = {
+  name: string;
+  description: string;
+
+  stockQuantity: number;
+  priceIn: number;
+  priceOut: number;
+  discount: number;
+
+  color: {
+    color: string;
+    images: string[];
+  }[];
+
+  thumbnail: string;
+  warranty: string;
+  availability: boolean;
+
+  images: string[];
+
+  categoryUuid: string;
+  supplierUuid: string;
+  brandUuid: string;
+};
+
 export type CreateProductType = {
   name: string,
   description: string,
@@ -36,7 +61,7 @@ export type CreateProductType = {
       ]
     }
   ],
-  thumbnail: string,
+  thumbnail: string | File;
   warranty: string,
   availability: true,
   images: [
@@ -46,3 +71,5 @@ export type CreateProductType = {
   supplierUuid: string,
   brandUuid: string
 }
+
+export type UploadFilesType = File[];

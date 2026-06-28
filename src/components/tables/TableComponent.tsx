@@ -54,7 +54,7 @@ export function DataTable<TData, TValue>({
   // mock data to create new product 
   const newProduct =    
   {
-    "name": "Dell XPS 1681681681",
+    "name": "google 169 pro max",
     "description": "Premium ultrabook with a stunning InfinityEdge display, ideal for creative professionals and power users on the go.",
     "computerSpec": {
       "processor": "Intel Core i7-13700H",
